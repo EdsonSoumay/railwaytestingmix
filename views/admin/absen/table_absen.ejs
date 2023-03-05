@@ -34,16 +34,16 @@
                                   <td><%=i + 1 %></td>
                                   <td><%=member[i][0].userName %></td>
                                     <% for(let j = 0; j< member[i].length; j++){ %>
-                                      <% if(member[i][j].presence == 'ontime'){ %>
+                                      <% if(member[i][j].presence.includes('ontime')){ %>
                                         <td >
                                           <span style="color: #2ecc71;">
-                                            <%= member[i][j].presence %>
+                                            <%= member[i][j].presence.split("_")[0] %>
                                           </span>
                                           </td>
-                                      <% }else if(member[i][j].presence == 'late'){  %>
+                                      <% }else if(member[i][j].presence.includes('late')){  %>
                                         <td >
                                           <span style="color: #ccba2e;">
-                                            <%= member[i][j].presence %>
+                                            <%= member[i][j].presence.split("_")[0] %>
                                           </span>
                                           </td>
                                         <% } else{ %>

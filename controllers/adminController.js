@@ -31,9 +31,9 @@ module.exports = {
     actionSignin: async (req, res) => {
         try {
           const { username, password } = req.body;
-          console.log(req.body);
+        //   console.log(req.body);
           const user = await Admin.findOne({ username: username });
-          console.log("user:",user);
+        //   console.log("user:",user);
           if (!user) {
             req.flash('alertMessage', 'User yang anda masukan tidak ada!!');
             req.flash('alertStatus', 'danger');
@@ -122,7 +122,7 @@ module.exports = {
                 }
   
                 newGetAttendance.userAttendance = arrayUserGetAttendance;
-                console.log("typeof:", typeof getAttendance[i].absenDate);
+                // console.log("typeof:", typeof getAttendance[i].absenDate);
 
                 //set up date
                 let day = getAttendance[i].absenDate.toLocaleDateString('en-US', {weekday: 'long'});
@@ -153,7 +153,7 @@ module.exports = {
             // cocokan dengan nama member
             const getMember = await Member.find({isActive: true})
 
-            console.log("get member:",getMember);
+            // console.log("get member:",getMember);
             let newArrayobject2 = []
             
             for(let i = 0; i < getMember.length; i++){
@@ -192,7 +192,7 @@ module.exports = {
                 newArrayobject2.push(arrayObject)
             }
             
-            console.log("new array obj 2:",newArrayobject2);
+            // console.log("new array obj 2:",newArrayobject2);
             // console.log("aray get attendance:",arrayGetAttendance[0].absenDate.day);
 
             const alertMessage = req.flash('alertMessage');
@@ -213,7 +213,7 @@ module.exports = {
             }); 
   
           } catch (error) {
-              console.log("error:",error);
+            //   console.log("error:",error);
           }
     },
 
@@ -265,7 +265,7 @@ module.exports = {
     AcceptMember: async (req, res) =>{
         try {
             const { id, username, email } = req.params;
-           console.log(id);
+        //    console.log(id);
            const findUserName = await Member.findOne({userName: username, isAccepted: true, email: email})
            if(findUserName){
             req.flash('alertMessage', 'User Name or Email already register');
@@ -299,7 +299,7 @@ module.exports = {
     resetPasswordMember: async (req, res) =>{
         try {
             const { id } = req.params;
-           console.log(id);
+        //    console.log(id);
            await Member.findOne({_id: id})
            .then((update)=>{
                 update.password = '$2a$10$srguLsFco.WXhYGhLF7zI.l1NVzmr1hpXHlkDEDcIR7EUa3ol3joO' //encryt dari "password"
@@ -327,8 +327,8 @@ module.exports = {
         try {
             const { id } = req.params;
             const { role } = req.body;
-            console.log("Role:",role);
-            console.log(id);
+            // console.log("Role:",role);
+            // console.log(id);
         
             let findRole = null;
             if(role != 'Member'){
@@ -366,7 +366,7 @@ module.exports = {
     updateStatusMember: async (req, res) =>{
         try {
             const { id } = req.params;
-           console.log(id);
+        //    console.log(id);
            await Member.findOne({_id: id})
            .then((update)=>{
                 update.isActive =  !update.isActive
