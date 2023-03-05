@@ -6,7 +6,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs')
 
 const Attendance = require('../models/Attendance');
-const UserAttendance = require('../models/userAttendance');
+const UserAttendance = require('../models/UserAttendance');
 
 
 module.exports = {
