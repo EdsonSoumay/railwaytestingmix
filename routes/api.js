@@ -6,6 +6,7 @@ const CurrentSemester = require('../controllers/CurrentSemester');
 
 //CURRENT SEMESTER
         router.put('/currentsemester/:_id', CurrentSemester.updateCurrentSemester )
+        router.post('/currentsemester', CurrentSemester.postCurrentSemester )
         router.get('/currentsemester/:_id', CurrentSemester.getCurrentSemester )
 
 ////USER & AUTH 

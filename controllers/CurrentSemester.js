@@ -2,6 +2,18 @@ const CurrentSemester = require('../models/CurrentSemester');
 const mongoose = require('mongoose');
 
 module.exports = {
+    postCurrentSemester: async (req, res) =>{
+        const {schoolYear,semester,reg_by} = req.body
+       try {
+        await CurrentSemester.create({
+            schoolYear,semester,reg_by
+        })
+       } catch (error) {
+            res.status(501).json({
+                    message: "server error",
+                    })
+       }
+    },
     updateCurrentSemester: async (req, res) =>{
        try {
         const { _id } = req.params
