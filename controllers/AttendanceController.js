@@ -1,5 +1,5 @@
 const Attendance = require('../models/Attendance');
-const UserAttendance = require('../models/userAttendance');
+const UserAttendance = require('../models/UserAttendance');
 const Member = require('../models/User');
 
 
