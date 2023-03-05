@@ -8,6 +8,9 @@ module.exports = {
         await CurrentSemester.create({
             schoolYear,semester,reg_by
         })
+        res.status(201).json({
+            message: "Sucessfully add current semester",
+            })
        } catch (error) {
             res.status(501).json({
                     message: "server error",
